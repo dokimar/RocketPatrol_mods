@@ -12,24 +12,28 @@ class Rocket extends Phaser.GameObjects.Sprite {
 
     update() {
         mouse.on
-    // pointer movement
-        "pointermove", (pointer) => {
-            if(!this.isFiring)
-            {this.x = Phaser.Math.Clamp(pointer.x, 47, 578);}
-            };
-        
-    // firing    
-        if(mouse.activePointer.leftButtonDown() && !this.isFiring) {
-            { 
-                this. isFiring = true;
-                this.sfxRocket.play();
-            }
+        // pointer movement
+        (
+            "pointermove", (pointer) => 
+            {
+                if(!this.isFiring)
+                {this.x = Phaser.Math.Clamp(pointer.x, 47, 578);}
+            },
+            this
+        );
+
+        // firing    
+        if(mouse.activePointer.leftButtonDown() && !this.isFiring)
+        { 
+            this. isFiring = true;
+            this.sfxRocket.play();
+        }
         if(this.isFiring && this.y >= 108) this.y -=2;  // move up
         if(this.y <= 108);}                               // reset on miss}
-            {
-                this.isFiring = false;
-                this.y = 431;
-            }
+        {
+            this.isFiring = false;
+            this.y = 431;
+        }
     }
     
     reset() {
