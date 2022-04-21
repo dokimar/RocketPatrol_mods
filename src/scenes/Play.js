@@ -258,7 +258,7 @@ class TwoPlayer extends Phaser.Scene {
             fixedWidth: 0
         }
         scoreConfig.color = '#FFEB3B';
-        this.add.text(borderUIsize + borderPadding * 2, borderUIsize + borderPadding * 2, 'Player01: ',
+        this.add.text(borderUIsize + borderPadding * 2, borderUIsize + borderPadding * 2, 'P01: ',
             scoreConfig);
         scoreConfig.color = '#843605';
         this.scoreLeft = this.add.text(borderUIsize + borderPadding * 7, borderUIsize + borderPadding * 2, this.p1Score,
@@ -270,7 +270,7 @@ class TwoPlayer extends Phaser.Scene {
             scoreConfig);
 
         scoreConfig.color = '#F44336';
-        this.add.text(borderUIsize + borderPadding * 44, borderUIsize + borderPadding * 2, 'Player02: ',
+        this.add.text(borderUIsize + borderPadding * 44, borderUIsize + borderPadding * 2, 'P02: ',
             scoreConfig);
         scoreConfig.color = '#843605';
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 49, borderUIsize + borderPadding * 2, this.p2Score,
