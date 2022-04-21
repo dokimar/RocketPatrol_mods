@@ -36,7 +36,7 @@ class Menu1 extends Phaser.Scene {
         menuConfig.fontFamily = 'Copperplate'
         menuConfig.color = '#000000';
         menuConfig.backgroundColor = '#00FF00';
-        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'Expel the Monsters', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'Run Over the Monsters', menuConfig).setOrigin(0.5);
         
         menuConfig.fontSize = '28px'
         menuConfig.fontFamily = 'Courier'
@@ -121,7 +121,7 @@ class Menu1 extends Phaser.Scene {
         menuConfig.fontFamily = 'Copperplate'
         menuConfig.color = '#000000';
         menuConfig.backgroundColor = '#00FF00';
-        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'Expel the Monsters', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'Run Over the Monsters', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px'
         menuConfig.fontFamily = 'Courier'
         menuConfig.color = '#008000';
