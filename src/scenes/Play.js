@@ -78,7 +78,7 @@ class SinglePlayer extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score, scoreConfig);
 
         // display highscore text
-        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'HighScore: ', scoreConfig);
+        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ', scoreConfig);
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore, scoreConfig);
 
         // GAME OVER
@@ -264,7 +264,7 @@ class TwoPlayer extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUIsize + borderPadding * 7, borderUIsize + borderPadding * 2, this.p1Score,
             scoreConfig);
 
-        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'HighScore: ',
+        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ',
             scoreConfig);
         this.scoreMid = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore,
             scoreConfig);

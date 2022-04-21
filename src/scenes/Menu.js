@@ -41,7 +41,7 @@ class Menu1 extends Phaser.Scene {
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize * 2 + borderPadding * 2, 'Press ↓ for Two Player Game', menuConfig).setOrigin(0.5);
   
         // display highscore text on menu
-        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'HighScore: ', menuConfig);
+        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ', menuConfig);
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, high_Score, menuConfig);
     }
   
@@ -115,7 +115,7 @@ class Menu1 extends Phaser.Scene {
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize * 2 + borderPadding * 2, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
   
         // display highscore text on menu
-        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'HighScore: ', menuConfig);
+        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ', menuConfig);
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, high_Score, menuConfig);
     }
   
