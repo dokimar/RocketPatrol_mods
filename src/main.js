@@ -2,7 +2,7 @@ let config = {
     type: Phaser.AUTO,
     width: 640,
     height: 480,
-    scene: [Menu01, Menu02, OnePlayer, TwoPlayer]
+    scene: [Menu1, Menu2, OnePlayer, TwoPlayer]
 }
 
 //reserve keyboard vars
