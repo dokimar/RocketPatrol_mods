@@ -16,8 +16,8 @@ class Menu1 extends Phaser.Scene {
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#f8f8ff',
+            color: '#ff7f50',
             align: 'right',
             padding: {
                 top: 5,
@@ -33,14 +33,25 @@ class Menu1 extends Phaser.Scene {
   
         // show menu text
         menuConfig.fontSize = '46px'
-        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'BALLOON POP', menuConfig).setOrigin(0.5);
+        menuConfig.fontFamily = 'Copperplate'
+        menuConfig.color = '#000000';
+        menuConfig.backgroundColor = '#00FF00';
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'Expel the Monsters', menuConfig).setOrigin(0.5);
+        
         menuConfig.fontSize = '28px'
+        menuConfig.fontFamily = 'Courier'
+        menuConfig.color = '#008000';
+        menuConfig.backgroundColor = '#000000';
         this.add.text(game.config.width / 2, game.config.height / 2, 'Use (S)(F) to move & (E) to fire', menuConfig).setOrigin(0.5);
-        menuConfig.color = '#000';
+        menuConfig.color = '#ff69b4';
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
+        menuConfig.color = '#000000';
+        menuConfig.backgroundColor = '#ff69b4';
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize * 2 + borderPadding * 2, 'Press ↓ for Two Player Game', menuConfig).setOrigin(0.5);
   
         // display highscore text on menu
+        menuConfig.color = '#4b0082';
+        menuConfig.backgroundColor = '#9370db';
         this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ', menuConfig);
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, high_Score, menuConfig);
     }
@@ -90,7 +101,7 @@ class Menu1 extends Phaser.Scene {
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
+            backgroundColor: '#dc143c',
             color: '#843605',
             align: 'right',
             padding: {
@@ -107,14 +118,22 @@ class Menu1 extends Phaser.Scene {
   
         // show menu text
         menuConfig.fontSize = '46px'
-        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'BALLOON POP', menuConfig).setOrigin(0.5);
+        menuConfig.fontFamily = 'Copperplate'
+        menuConfig.color = '#000000';
+        menuConfig.backgroundColor = '#00FF00';
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'Expel the Monsters', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px'
+        menuConfig.fontFamily = 'Courier'
+        menuConfig.color = '#008000';
+        menuConfig.backgroundColor = '#000000';
         this.add.text(game.config.width / 2, game.config.height / 2, 'P1: Use (S)(F) to move & (E) to fire', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize + borderPadding, 'P2: Use (←)(→) to move & (↑) to fire', menuConfig).setOrigin(0.5);
-        menuConfig.color = '#000';
+        menuConfig.color = '#ff69b4';
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize * 2 + borderPadding * 2, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
   
         // display highscore text on menu
+        menuConfig.color = '#4b0082';
+        menuConfig.backgroundColor = '#9370db';
         this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ', menuConfig);
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, high_Score, menuConfig);
     }

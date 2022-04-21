@@ -66,8 +66,8 @@ class SinglePlayer extends Phaser.Scene {
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#000000',
+            color: '#FFFF00',
             align: 'right',
             padding: {
                 top: 5,
@@ -75,14 +75,19 @@ class SinglePlayer extends Phaser.Scene {
             },
             fixedWidth: 0
         }
+        scoreConfig.color = '#00ffff';
+        scoreConfig.backgroundColor = '#0000ff';
         this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score, scoreConfig);
 
         // display highscore text
-        scoreConfig.color = '#FFEB3B';
+        scoreConfig.color = '#4b0082';
+        scoreConfig.backgroundColor = '#9370db';
         this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ', scoreConfig);
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore, scoreConfig);
 
         // GAME OVER
+        scoreConfig.backgroundColor = '#FFFF00';
+        scoreConfig.color = '#000000';
         this.gameOver = false;
 
         // 60-second play clock
@@ -265,7 +270,8 @@ class TwoPlayer extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUIsize + borderPadding * 7, borderUIsize + borderPadding * 2, this.p1Score,
             scoreConfig);
 
-        scoreConfig.color = '#FFEB3B';
+        scoreConfig.color = '#4b0082';
+        scoreConfig.backgroundColor = '#9370db';
         this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ',
             scoreConfig);
         this.scoreMid = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore,
