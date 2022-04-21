@@ -78,6 +78,7 @@ class SinglePlayer extends Phaser.Scene {
         this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score, scoreConfig);
 
         // display highscore text
+        scoreConfig.color = '#FFEB3B';
         this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ', scoreConfig);
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore, scoreConfig);
 
@@ -257,13 +258,14 @@ class TwoPlayer extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        scoreConfig.color = '#FFEB3B';
+        scoreConfig.color = '#F44336';
         this.add.text(borderUIsize + borderPadding * 2, borderUIsize + borderPadding * 2, 'P01: ',
             scoreConfig);
         scoreConfig.color = '#843605';
         this.scoreLeft = this.add.text(borderUIsize + borderPadding * 7, borderUIsize + borderPadding * 2, this.p1Score,
             scoreConfig);
 
+        scoreConfig.color = '#FFEB3B';
         this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'Best: ',
             scoreConfig);
         this.scoreMid = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore,
