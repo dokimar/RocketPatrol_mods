@@ -1,6 +1,6 @@
 class OnePlayer extends Phaser.Scene {
     constructor() {
-        super("playScene01");
+        super("playScene1");
     }
     
     preload() {
@@ -110,7 +110,7 @@ class OnePlayer extends Phaser.Scene {
         }
         
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
-            this.scene.start("menuScene01");
+            this.scene.start("menuScene1");
         }
     }
 
@@ -156,7 +156,7 @@ class OnePlayer extends Phaser.Scene {
 
 class TwoPlayer extends Phaser.Scene {
     constructor() {
-        super("playScene02");
+        super("playScene2");
     }
     preload() {
         // load images/tile sprites
@@ -291,7 +291,7 @@ class TwoPlayer extends Phaser.Scene {
         }
 
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
-            this.scene.start("menuScene01");
+            this.scene.start("menuScene1");
         }
     }
 

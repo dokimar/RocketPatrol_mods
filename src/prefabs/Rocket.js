@@ -1,5 +1,5 @@
 // Rocket prefab for player 01
-class Rocket_play01 extends Phaser.GameObjects.Sprite {
+class Rocket1 extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
         // add object to existing scene
@@ -42,7 +42,7 @@ class Rocket_play01 extends Phaser.GameObjects.Sprite {
 
 // -----------------------------------------------------------------------
 // Rocket prefab for player02
-class Rocket_play02 extends Phaser.GameObjects.Sprite {
+class Rocket2 extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
         // add object to existing scene

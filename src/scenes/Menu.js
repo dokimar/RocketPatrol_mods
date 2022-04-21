@@ -1,6 +1,6 @@
-class Menu01 extends Phaser.Scene {
+class Menu1 extends Phaser.Scene {
     constructor() {
-      super("menuScene01");
+      super("menuScene1");
     }
 
     preload() {
@@ -63,7 +63,7 @@ class Menu01 extends Phaser.Scene {
           gameTimer: 60000    
         }
         this.sound.play('sfx_select');
-        this.scene.start('playScene01');    
+        this.scene.start('playScene1');    
       }
       if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
         // hard mode
@@ -72,12 +72,12 @@ class Menu01 extends Phaser.Scene {
           gameTimer: 45000    
         }
         this.sound.play('sfx_select');
-        this.scene.start('playScene01');    
+        this.scene.start('playScene1');    
       }
       if (Phaser.Input.Keyboard.JustDown(keyDOWN)) {
         // two player mode
         this.sound.play('sfx_select');
-        this.scene.start('menuScene02');
+        this.scene.start('menuScene2');
       }
     }
   }
@@ -86,7 +86,7 @@ class Menu01 extends Phaser.Scene {
   // --------------------------------------------------------
   class Menu02 extends Phaser.Scene {
     constructor() {
-      super("menuScene02");
+      super("menuScene2");
     }
 
     preload() {
@@ -148,7 +148,7 @@ class Menu01 extends Phaser.Scene {
           gameTimer: 60000    
         }
         this.sound.play('sfx_select');
-        this.scene.start('playScene02');    
+        this.scene.start('playScene2');    
       }
       if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
         // hard mode
@@ -157,7 +157,7 @@ class Menu01 extends Phaser.Scene {
           gameTimer: 45000    
         }
         this.sound.play('sfx_select');
-        this.scene.start('playScene02');    
+        this.scene.start('playScene2');    
       }
     }
   }
