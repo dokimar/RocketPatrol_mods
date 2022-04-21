@@ -19,7 +19,6 @@ let config = {
 // Allow the player to control the Rocket after it's fired 
 // (5)
 
-(5)  Allow the player to control the rocket after it's fired
 let keyUP, keyDOWN, keyLEFT, keyRIGHT, keyE, keyS, keyF, keyR;
 let game = new Phaser.Game(config);
 
