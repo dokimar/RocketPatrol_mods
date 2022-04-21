@@ -23,7 +23,7 @@ class SinglePlayer extends Phaser.Scene {
 
         // green UI background
         this.add.rectangle(0, borderUIsize + borderPadding, game.config.width,
-            borderUIsize * 2, 0x6EDCFA).setOrigin(0, 0);
+            borderUIsize * 2, 0x87ceeb).setOrigin(0, 0);
         // white borders
         this.add.rectangle(0, 0, game.config.width, borderUIsize, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(0, game.config.height - borderUIsize, game.config.width, borderUIsize, 0xFFFFFF).setOrigin(0, 0);
@@ -263,10 +263,10 @@ class TwoPlayer extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        scoreConfig.color = '#F44336';
-        this.add.text(borderUIsize + borderPadding * 2, borderUIsize + borderPadding * 2, 'P01: ',
+        scoreConfig.color = '#00ffff';
+        scoreConfig.backgroundColor = '#0000ff';
+        this.add.text(borderUIsize + borderPadding * 2, borderUIsize + borderPadding * 2, 'P1: ',
             scoreConfig);
-        scoreConfig.color = '#843605';
         this.scoreLeft = this.add.text(borderUIsize + borderPadding * 7, borderUIsize + borderPadding * 2, this.p1Score,
             scoreConfig);
 
@@ -277,15 +277,17 @@ class TwoPlayer extends Phaser.Scene {
         this.scoreMid = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore,
             scoreConfig);
 
-        scoreConfig.color = '#F44336';
-        this.add.text(borderUIsize + borderPadding * 44, borderUIsize + borderPadding * 2, 'P02: ',
+        scoreConfig.color = '#fff0f5';
+        scoreConfig.backgroundColor = '#FF0000';
+        this.add.text(borderUIsize + borderPadding * 44, borderUIsize + borderPadding * 2, 'P2: ',
             scoreConfig);
-        scoreConfig.color = '#843605';
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 49, borderUIsize + borderPadding * 2, this.p2Score,
             scoreConfig);
 
         // GAME OVER
         this.gameOver = false;
+        scoreConfig.backgroundColor = '#FFFF00';
+        scoreConfig.color = '#000000';
 
         // 60-second play clock
         scoreConfig.fixedWidth = 0;
