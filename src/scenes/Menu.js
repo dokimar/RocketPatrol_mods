@@ -17,7 +17,7 @@ class Menu1 extends Phaser.Scene {
             fontFamily: 'Courier',
             fontSize: '28px',
             backgroundColor: '#F3B141',
-            color: '#843605',
+            color: '#b4366b',
             align: 'right',
             padding: {
                 top: 5,
@@ -35,7 +35,7 @@ class Menu1 extends Phaser.Scene {
         menuConfig.fontSize = '46px'
         this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'BALLOON POP', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px'
-        this.add.text(game.config.width / 2, game.config.height / 2, 'Use (S)(F) to move & (E) to fire', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2, 'Use (mouse) to move and (left-click) to fire', menuConfig).setOrigin(0.5);
         menuConfig.color = '#000';
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize * 2 + borderPadding * 2, 'Press ↓ for Two Player Game', menuConfig).setOrigin(0.5);
@@ -109,8 +109,8 @@ class Menu1 extends Phaser.Scene {
         menuConfig.fontSize = '46px'
         this.add.text(game.config.width / 2, game.config.height / 2 - borderUIsize - borderPadding*4, 'BALLOON POP', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px'
-        this.add.text(game.config.width / 2, game.config.height / 2, 'P1: Use (S)(F) to move & (E) to fire', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize + borderPadding, 'P2: Use (←)(→) to move & (↑) to fire', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2, 'P1: Use (mouse) to move and (left-click) to fire', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize + borderPadding, 'P2: Use (mouse) to move and (left-click) to fire', menuConfig).setOrigin(0.5);
         menuConfig.color = '#000';
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUIsize * 2 + borderPadding * 2, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
   
