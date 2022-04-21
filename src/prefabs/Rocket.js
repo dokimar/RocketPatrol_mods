@@ -1,19 +1,18 @@
-// Rocket1 (player1) prefab
+// Rocket1 is the prefab for player01
 class Rocket1 extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
-
+        // add object to existing scene
         scene.add.existing(this);
+
         this.isFiring = false;
         this.moveSpeed = game.settings.spaceshipSpeed;
-
-        // add rocket sfx
         this.sfxRocket = scene.sound.add('sfx_rocket');
     }
 
 
     update() {
-        // left/right movement
+        // rocket's left or right movement
         if (true) {
             if (keyA.isDown && this.x >= borderUIsize + this.width) {
                 this.x -= this.moveSpeed;
@@ -22,44 +21,43 @@ class Rocket1 extends Phaser.GameObjects.Sprite {
             }
         }
 
-        //fire button
+        // firing the rocket upward button
         if (Phaser.Input.Keyboard.JustDown(keyW) && !this.isFiring){
             this.isFiring = true;
-            this.sfxRocket.play(); // play the rocket sfxs
+            this.sfxRocket.play();
         }
-        // if fired. move the rocket up
+        // if fired. shoot up
         if (this.isFiring && this.y >= borderUIsize * 3 + borderPadding){
             this.y -= this.moveSpeed;
         }
-        // reset on miss
+        // if you miss, reset
         if (this.y <= borderUIsize * 3 + borderPadding){
             this.reset();
         }
     }
 
-    // reset rocket to "ground"
+    // reset to ground level
     reset(){
         this.isFiring = false;
         this.y = game.config.height - borderUIsize - borderPadding*2.5;
     }
 }
 
-// Rocket2 (player2) prefab
+// Rocket2 is the prefab for player02
 class Rocket2 extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame) {
         super(scene, x, y, texture, frame);
-
+        // add object to existing scene
         scene.add.existing(this);
+
         this.isFiring = false;
         this.moveSpeed = game.settings.spaceshipSpeed;
-
-        // add rocket sfx
         this.sfxRocket = scene.sound.add('sfx_rocket');
     }
 
 
     update() {
-        // left/right movement
+        // rocket's left or right movement
         if (true) {
             if (keyLEFT.isDown && this.x >= borderUIsize + this.width) {
                 this.x -= this.moveSpeed;
@@ -68,22 +66,22 @@ class Rocket2 extends Phaser.GameObjects.Sprite {
             }
         }
 
-        //fire button
+        // firing button
         if (Phaser.Input.Keyboard.JustDown(keyUP) && !this.isFiring){
             this.isFiring = true;
-            this.sfxRocket.play(); // play the rocket sfxs
+            this.sfxRocket.play();
         }
-        // if fired. move the rocket up
+        // if fired. shoot up
         if (this.isFiring && this.y >= borderUIsize * 3 + borderPadding){
             this.y -= this.moveSpeed;
         }
-        // reset on miss
+        // if you miss, reset
         if (this.y <= borderUIsize * 3 + borderPadding){
             this.reset();
         }
     }
 
-    // reset rocket to "ground"
+    // reset rocket to ground level
     reset(){
         this.isFiring = false;
         this.y = game.config.height - borderUIsize - borderPadding*2.5;

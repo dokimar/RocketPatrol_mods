@@ -2,10 +2,8 @@ class SinglePlayer extends Phaser.Scene {
     constructor() {
         super("playScene1");
     }
-
-    // init(), preload
     preload() {
-        //load iamges/tile sprites
+        // load images/tile sprites
         this.load.image('rocket', './assets/rocket.png');
         this.load.image('starfield', './assets/starfield.png');
         this.load.image('spaceship', './assets/spaceship.png');
@@ -27,15 +25,10 @@ class SinglePlayer extends Phaser.Scene {
         this.add.rectangle(0, borderUIsize + borderPadding, game.config.width,
             borderUIsize * 2, 0x6EDCFA).setOrigin(0, 0);
         // white borders
-        this.add.rectangle(0, 0, game.config.width, borderUIsize, 0xFFFFFF).setOrigin
-            (0, 0);
-        this.add.rectangle(0, game.config.height - borderUIsize, game.config.width,
-            borderUIsize, 0xFFFFFF).setOrigin(0, 0);
-        this.add.rectangle(0, 0, borderUIsize, game.config.height, 0xFFFFFF).setOrigin
-            (0, 0);
-        this.add.rectangle(game.config.width - borderUIsize, 0, borderUIsize, game.
-            config.height, 0xFFFFFF).setOrigin
-            (0, 0);
+        this.add.rectangle(0, 0, game.config.width, borderUIsize, 0xFFFFFF).setOrigin(0, 0);
+        this.add.rectangle(0, game.config.height - borderUIsize, game.config.width, borderUIsize, 0xFFFFFF).setOrigin(0, 0);
+        this.add.rectangle(0, 0, borderUIsize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
+        this.add.rectangle(game.config.width - borderUIsize, 0, borderUIsize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
 
         // animation config
         this.anims.create({
@@ -49,17 +42,14 @@ class SinglePlayer extends Phaser.Scene {
         });
 
 
-        // add rocket (Player 1)
+        // add rocket (p1)
         this.p1Rocket = new Rocket1(this, game.config.width / 2, game.config.height -
             borderUIsize - borderPadding * 2.5, 'rocket').setOrigin(0.5, 0);
 
-        // add sapceship (x3)
-        this.ship01 = new Spaceship(this, game.config.width + borderUIsize * 6, borderUIsize * 4,
-            'spaceship', 0, 30).setOrigin(0, 0);
-        this.ship02 = new Spaceship(this, game.config.width + borderUIsize * 3, borderUIsize * 5 +
-            borderPadding * 2, 'spaceship', 0, 20).setOrigin(0, 0);
-        this.ship03 = new Spaceship(this, game.config.width, borderUIsize * 6 + borderPadding * 4,
-            'spaceship', 0, 10).setOrigin(0, 0);
+        // add spaceships (x3)
+        this.ship01 = new Spaceship(this, game.config.width + borderUIsize * 6, borderUIsize * 4, 'spaceship', 0, 30).setOrigin(0, 0);
+        this.ship02 = new Spaceship(this, game.config.width + borderUIsize * 3, borderUIsize * 5 + borderPadding * 2, 'spaceship', 0, 20).setOrigin(0, 0);
+        this.ship03 = new Spaceship(this, game.config.width, borderUIsize * 6 + borderPadding * 4, 'spaceship', 0, 10).setOrigin(0, 0);
 
         // define keys
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
@@ -76,7 +66,7 @@ class SinglePlayer extends Phaser.Scene {
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#46E0C9',
+            backgroundColor: '#F3B141',
             color: '#843605',
             align: 'right',
             padding: {
@@ -85,16 +75,13 @@ class SinglePlayer extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score,
-            scoreConfig);
+        this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score, scoreConfig);
 
-        // Display the highscore text
-        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'HighScore: ',
-            scoreConfig);
-        this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore,
-            scoreConfig);
+        // display highscore text
+        this.add.text(borderUIsize + borderPadding * 17, borderUIsize + borderPadding * 2, 'HighScore: ', scoreConfig);
+        this.scoreRight = this.add.text(borderUIsize + borderPadding * 34, borderUIsize + borderPadding * 2, this.highScore, scoreConfig);
 
-        // GAME OVER flag
+        // GAME OVER
         this.gameOver = false;
 
         // 60-second play clock
@@ -136,7 +123,7 @@ class SinglePlayer extends Phaser.Scene {
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }
-
+        // check key input for return to menu1
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene1");
         }
@@ -155,26 +142,26 @@ class SinglePlayer extends Phaser.Scene {
     }
 
     shipExplode(ship) {
-        // temprorarily hide ship
+        // temporarily hide ship
         ship.alpha = 0;
         // create explosion sprite at ship's position
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
-        boom.anims.play('explode');
-        boom.on('animationcomplete', () => {
-            ship.reset();
-            ship.alpha = 1;
-            boom.destroy();
+        boom.anims.play('explode');                 // play explode animation
+        boom.on('animationcomplete', () => {        // callback after anim completes
+            ship.reset();                           // reset ship position
+            ship.alpha = 1;                         // make ship visible again
+            boom.destroy();                         // remove explosion sprite
         });
-        // score add and repaint
+        // score add
         this.p1Score += ship.points;
 
-        // Check if the current score exceed the highscore 
+        // is the current score bigger than the highscore?
         if (this.p1Score > this.highScore) {
             this.highScore = this.p1Score;
             high_Score = this.highScore;
         }
 
-        // Adress the display score with current scores
+        // display updated scores
         this.scoreLeft.text = this.p1Score;
         this.scoreRight.text = this.highScore;
         this.sound.play('sfx_explosion');
@@ -185,10 +172,8 @@ class TwoPlayer extends Phaser.Scene {
     constructor() {
         super("playScene2");
     }
-
-    // init(), preload
     preload() {
-        //load iamges/tile sprites
+        //load images/tile sprites
         this.load.image('rocket', './assets/rocket.png');
         this.load.image('rocket2', './assets/rocket2.png');
         this.load.image('spaceship', './assets/spaceship.png');
@@ -203,7 +188,7 @@ class TwoPlayer extends Phaser.Scene {
     }
 
     create() {
-        // place starfield
+        // place tile sprite
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
 
         // green UI background
@@ -220,13 +205,13 @@ class TwoPlayer extends Phaser.Scene {
             config.height, 0xFFFFFF).setOrigin
             (0, 0);
 
-        // add rocket (Player x2)
+        // add two rockets for two players
         this.p1Rocket = new Rocket1(this, game.config.width / 4, game.config.height -
             borderUIsize - borderPadding * 2.5, 'rocket').setOrigin(0.5, 0);
         this.p2Rocket = new Rocket2(this, game.config.width / 2, game.config.height -
             borderUIsize - borderPadding * 2.5, 'rocket2').setOrigin(0.5, 0);
 
-        // add sapceship (x3)
+        // add spaceships (x3)
         this.ship01 = new Spaceship(this, game.config.width + borderUIsize * 6, borderUIsize * 4,
             'spaceship', 0, 30).setOrigin(0, 0);
         this.ship02 = new Spaceship(this, game.config.width + borderUIsize * 3, borderUIsize * 5 +
@@ -263,7 +248,7 @@ class TwoPlayer extends Phaser.Scene {
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#46E0C9',
+            backgroundColor: '#F3B141',
             color: '#843605',
             align: 'right',
             padding: {
@@ -273,7 +258,7 @@ class TwoPlayer extends Phaser.Scene {
             fixedWidth: 0
         }
         scoreConfig.color = '#FFEB3B';
-        this.add.text(borderUIsize + borderPadding * 2, borderUIsize + borderPadding * 2, 'P1: ',
+        this.add.text(borderUIsize + borderPadding * 2, borderUIsize + borderPadding * 2, 'Player01: ',
             scoreConfig);
         scoreConfig.color = '#843605';
         this.scoreLeft = this.add.text(borderUIsize + borderPadding * 7, borderUIsize + borderPadding * 2, this.p1Score,
@@ -285,13 +270,13 @@ class TwoPlayer extends Phaser.Scene {
             scoreConfig);
 
         scoreConfig.color = '#F44336';
-        this.add.text(borderUIsize + borderPadding * 44, borderUIsize + borderPadding * 2, 'P2: ',
+        this.add.text(borderUIsize + borderPadding * 44, borderUIsize + borderPadding * 2, 'Player02: ',
             scoreConfig);
         scoreConfig.color = '#843605';
         this.scoreRight = this.add.text(borderUIsize + borderPadding * 49, borderUIsize + borderPadding * 2, this.p2Score,
             scoreConfig);
 
-        // GAME OVER flag
+        // GAME OVER
         this.gameOver = false;
 
         // 60-second play clock
@@ -306,8 +291,6 @@ class TwoPlayer extends Phaser.Scene {
 
     update() {
         this.starfield.tilePositionX -= starSpeed;
-
-        // update the sprite
         if (!this.gameOver) {
             this.p1Rocket.update();
             this.p2Rocket.update();
@@ -348,7 +331,7 @@ class TwoPlayer extends Phaser.Scene {
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }
-
+        // check key input for return to menu
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             this.scene.start("menuScene1");
         }
@@ -367,7 +350,7 @@ class TwoPlayer extends Phaser.Scene {
     }
 
     shipExplode(ship, rocket) {
-        // temprorarily hide ship
+        // temporarily hide ship
         ship.alpha = 0;
         // create explosion sprite at ship's position
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
