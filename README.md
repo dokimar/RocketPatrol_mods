@@ -4,6 +4,7 @@ Implementing modifications to the Rocket Patrol tutorial game created in class
 
 Author: Marlene Lopez
 Duration: 43 hours (I really struggled but it was fun)
+Date: 20 April 2022
 
 
 Assignment: Rocket Patrol Mods [~10–15 hours]
