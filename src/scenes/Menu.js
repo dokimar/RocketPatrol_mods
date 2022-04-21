@@ -5,9 +5,9 @@ class Menu1 extends Phaser.Scene {
 
   preload() {
       // load audio
-      this.load.audio('sfx_select', './assets/blip_select12.wav');
-      this.load.audio('sfx_explosion', './assets/duck-cry.wav');
-      this.load.audio('sfx_rocket', './assets/arrow-Hit.wav');
+      this.load.audio('sfx_select', './assets/blip_select.wav');
+      this.load.audio('sfx_explosion', './assets/explosion.wav');
+      this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
   }
 
   create() {
@@ -85,9 +85,9 @@ class Menu2 extends Phaser.Scene {
 
   preload() {
       // load audio
-      this.load.audio('sfx_select', './assets/blip_select12.wav');
-      this.load.audio('sfx_explosion', './assets/duck-cry.wav');
-      this.load.audio('sfx_rocket', './assets/arrow-Hit.wav');
+      this.load.audio('sfx_select', './assets/blip_select.wav');
+      this.load.audio('sfx_explosion', './assets/explosion.wav');
+      this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
   }
 
   create() {
