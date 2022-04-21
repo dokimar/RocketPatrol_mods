@@ -1,5 +1,5 @@
 // total points: 100
-// Marlene Lopez (mlope109@ucsc.edu)
+// Author: Marlene Lopez Duration: 43 hours (I really struggled but it was fun) Date: 20 April 2022
 
 let config = {
     type: Phaser.CANVAS,
